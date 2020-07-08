@@ -155,7 +155,7 @@ class fleet_workorder(models.Model):
 		"""
 		self.write({'state':'startworking', 'date_start': datetime.strftime(datetime.now(), '%Y-%m-%d %H:%M:%S')})
 		if self.fleet_repair_id:
-			self.fleet_repair_id.sudo(1).write({'state': 'workorder'})
+			self.fleet_repair_id.sudo().write({'state': 'workorder'})
 		return True
 
 	
@@ -173,8 +173,8 @@ class fleet_workorder(models.Model):
 
 		self.write({'state':'done', 'date_finished': date_now, 'delay':delay})
 		if self.sale_order_id:
-			self.sale_order_id.sudo(1).write({'state': 'sale'})
+			self.sale_order_id.sudo().write({'state': 'sale'})
 		if self.fleet_repair_id:
-			self.fleet_repair_id.sudo(1).write({'state': 'work_completed'})
+			self.fleet_repair_id.sudo().write({'state': 'work_completed'})
 		return True
 

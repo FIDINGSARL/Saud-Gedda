@@ -11,3 +11,9 @@ Version 13.0.0.2 : (1/07/20)
 		- Solve invoice open and print issue.
 		- Solve sale print issue.
 		- Use next_by_code() method instead of get() for sequence
+
+Date 7/7/2020
+version 13.0.0.3
+issue solve:-
+	- sale report and invoice report inherit issue solve.
+	- remove 1 from sudo , its already same as super user.
